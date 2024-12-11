@@ -17,62 +17,70 @@ struct ContentView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var alertMessage: CustomAlertMessage?
-    @State private var isSignupPresented: Bool = false
+    @State private var isLoginSuccessful: Bool = false // 로그인 성공 여부
+    @State private var isSignupPresented: Bool = false // 회원가입 화면 표시 여부
 
     var body: some View {
-        VStack(spacing: 20) {
-            Spacer()
-            Text("Login")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-
-            TextField("Email", text: $email)
-                .padding()
-                .background(Color(.systemGray6))
-                .cornerRadius(8)
-                .keyboardType(.emailAddress)
-                .autocapitalization(.none)
-
-            SecureField("Password", text: $password)
-                .padding()
-                .background(Color(.systemGray6))
-                .cornerRadius(8)
-
-            Button(action: login) {
+        NavigationStack {
+            VStack(spacing: 20) {
+                Spacer()
                 Text("Login")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity, minHeight: 50)
-                    .background(Color.blue)
-                    .cornerRadius(8)
-            }
-            
-            Button(action: {
-                            isSignupPresented = true
-                        }) {
-                            Text("Sign Up")
-                                .font(.headline)
-                                .foregroundColor(.blue)
-                                .frame(maxWidth: .infinity, minHeight: 50)
-                                .background(Color.clear)
-                        }
-                        .sheet(isPresented: $isSignupPresented) {
-                            SignupView()
-                        }
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
 
-            Spacer()
-        }
-        .padding()
-        .alert(item: $alertMessage) { message in
-            Alert(title: Text("Alert"), message: Text(message.message), dismissButton: .default(Text("OK")))
+                TextField("Email", text: $email)
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(8)
+                    .keyboardType(.emailAddress)
+                    .autocapitalization(.none)
+
+                SecureField("Password", text: $password)
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(8)
+
+                // 로그인 버튼
+                Button(action: login) {
+                    Text("Login")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity, minHeight: 50)
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                }
+
+                // 회원가입 버튼
+                Button(action: {
+                    isSignupPresented = true
+                }) {
+                    Text("Sign Up")
+                        .font(.headline)
+                        .foregroundColor(.blue)
+                        .frame(maxWidth: .infinity, minHeight: 50)
+                        .background(Color.clear)
+                }
+                .sheet(isPresented: $isSignupPresented) {
+                    SignupView()
+                }
+
+                Spacer()
+            }
+            .padding()
+            .alert(item: $alertMessage) { message in
+                Alert(title: Text("Alert"), message: Text(message.message), dismissButton: .default(Text("OK")))
+            }
+            .navigationDestination(isPresented: $isLoginSuccessful) {
+                mainView() // 로그인 성공 시 이동할 메인 화면
+            }
         }
     }
 
     func login() {
         if email.isEmpty || password.isEmpty {
             alertMessage = CustomAlertMessage(message: "Please enter both email and password.")
-        } else if email == "test@example.com" && password == "password" {
-            alertMessage = CustomAlertMessage(message: "Login Successful!")
+        } else if email == "admin123" && password == "admin1234" {
+            isLoginSuccessful = true // 로그인 성공 시 화면 전환
         } else {
             alertMessage = CustomAlertMessage(message: "Invalid email or password.")
         }
@@ -84,4 +92,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
 

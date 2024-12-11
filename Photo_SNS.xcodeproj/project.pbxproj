@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FDD4B4732D099A0500A36E6F /* mianView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD4B4722D099A0500A36E6F /* mianView.swift */; };
+		FDD4B4752D099B9A00A36E6F /* mapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD4B4742D099B9A00A36E6F /* mapView.swift */; };
+		FDD4B4772D099BA500A36E6F /* settingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD4B4762D099BA500A36E6F /* settingView.swift */; };
 		FDF3B6212D08570D0093C750 /* Photo_SNSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF3B6202D08570D0093C750 /* Photo_SNSApp.swift */; };
 		FDF3B6232D08570D0093C750 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF3B6222D08570D0093C750 /* ContentView.swift */; };
 		FDF3B6252D08570E0093C750 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDF3B6242D08570E0093C750 /* Assets.xcassets */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FDD4B4722D099A0500A36E6F /* mianView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mianView.swift; sourceTree = "<group>"; };
+		FDD4B4742D099B9A00A36E6F /* mapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapView.swift; sourceTree = "<group>"; };
+		FDD4B4762D099BA500A36E6F /* settingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingView.swift; sourceTree = "<group>"; };
 		FDF3B61D2D08570D0093C750 /* Photo_SNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photo_SNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDF3B6202D08570D0093C750 /* Photo_SNSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo_SNSApp.swift; sourceTree = "<group>"; };
 		FDF3B6222D08570D0093C750 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,9 +59,12 @@
 		FDF3B61F2D08570D0093C750 /* Photo_SNS */ = {
 			isa = PBXGroup;
 			children = (
+				FDD4B4762D099BA500A36E6F /* settingView.swift */,
+				FDD4B4742D099B9A00A36E6F /* mapView.swift */,
 				FDF3B6202D08570D0093C750 /* Photo_SNSApp.swift */,
 				FDF3B6222D08570D0093C750 /* ContentView.swift */,
 				FDF3B62E2D0860140093C750 /* SignupView.swift */,
+				FDD4B4722D099A0500A36E6F /* mianView.swift */,
 				FDF3B6242D08570E0093C750 /* Assets.xcassets */,
 				FDF3B6262D08570E0093C750 /* Preview Content */,
 			);
@@ -141,7 +150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDF3B62F2D0860140093C750 /* SignupView.swift in Sources */,
+				FDD4B4772D099BA500A36E6F /* settingView.swift in Sources */,
+				FDD4B4732D099A0500A36E6F /* mianView.swift in Sources */,
 				FDF3B6232D08570D0093C750 /* ContentView.swift in Sources */,
+				FDD4B4752D099B9A00A36E6F /* mapView.swift in Sources */,
 				FDF3B6212D08570D0093C750 /* Photo_SNSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
