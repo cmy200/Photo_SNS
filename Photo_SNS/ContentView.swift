@@ -73,6 +73,7 @@ struct ContentView: View {
             .navigationDestination(isPresented: $isLoginSuccessful) {
                 mainView() // 로그인 성공 시 이동할 메인 화면
             }
+            .navigationBarHidden(true)
         }
     }
 
